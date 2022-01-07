@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asaung</title>
     <link rel="stylesheet" href="dist/tailwind.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="bg-primary-light">
-    <header>
+    <header class="fixed top-0 w-full h-20 z-20">
         <div class="bg-primary p-4">
             <div class="flex justify-between">
                 <div>
@@ -16,33 +18,75 @@
                         <a href="https://www.shweproperty.com/" class="text-4xl text-primary-light font-black text-center">Asaung</a>
                     </div>
                 </div>
-                <div class="flex space-x-4">
+                <div class="flex space-x-4 lg:block hidden">
                     <a href="#" class="button text-primary-light p-2 border-2 border-primary-light rounded hover:bg-primary-light hover:text-primary">Login</a>
                     <a href="#" class="button text-primary-light p-2 border-2 border-primary-light rounded hover:bg-primary-light hover:text-primary">Signup</a>
                 </div>
             </div>
         </div>
     </header>
-    <section class="bg-primary-light pt-2 text-xs">
+    <section x-data="{ show: false }" class="lg:hidden">
+        <div @click="show = !show" class="fixed top-7 right-8 z-20">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div x-show="show" class="absolute top-16 left-0 right-0 bottom-0 z-10 bg-primary-light h-screen">
+            <ul class="py-3">
+                <li class="border-b-2 py-2 px-3"><a href="#">Home</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">ဝယ်ရန်</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">ငှားရန်</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">စီမံကိန်း အသစ်များ</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">အိမ်ခြံမြေပြပွဲများ</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">အိမ်ခြံမြေလမ်းညွှန်</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">ART OF LIVING</a></li>
+                <li x-data="{ show: false }" class="relative border-b-2 py-2 px-3">
+                    <a href="#" @click="show = !show">အိမ်ရှာဖွေသူများ</a>
+                    <div x-show="show" class="grid">
+                        <a href="#" class="border-b-2 py-2 px-3">အိမ်ဝယ်ရန်ရှာဖွေနေသူများ</a>
+                        <a href="#" class="border-b-2 py-2 px-3">အိမ်ငှါးရန်ရှာဖွေနေသူများ</a>
+                        <a href="#" class="py-2 px-3">အိမ်ရှာဖွေသူများ ပို့စ်တင်ရန်</a>
+                    </div>
+                </li>
+                <li class="border-b-2 py-2 px-3"><a href="#">သတင်း</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">အကျိုးဆောင်များ</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">Careers</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">Booking</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">ID ဖြင့်ရှာပါ</a></li>
+                <li class="border-b-2 py-2 px-3"><a href="#">ဆက်သွယ်ရန်</a></li>
+            </ul>
+            <div class="flex pl-3 space-x-4">
+                <a href="#" class="button text-primary p-2 border-2 border-primary rounded">Login</a>
+                <a href="#" class="button text-primary p-2 border-2 border-primary rounded">Signup</a>
+            </div>
+        </div>
+    </section>
+    <section class="bg-primary-light mt-20 pt-2 text-xs lg:block hidden">
         <div class="container mx-auto">
             <div class="flex">
                 <div>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">Home</a>
                 </div>
-                <div class="flex justify-around lg:w-1/4 mb-2 border-r-2">
+                <div class="flex justify-around lg:w-1/5 mb-2 border-r-2">
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">ဝယ်ရန်</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">ငှားရန်</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">စီမံကိန်း အသစ်များ</a>
                 </div>
-                <div class="flex justify-around lg:w-2/4 mb-2 border-r-2">
+                <div class="flex justify-around lg:w-3/5 mb-2 border-r-2">
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">အိမ်ခြံမြေပြပွဲများ</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">အိမ်ခြံမြေလမ်းညွှန်</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">ART OF LIVING</a>
+                    <div class="relative" x-data="{ show: false }">
+                        <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary" @click="show = !show">အိမ်ရှာဖွေသူများ</a>
+                        <ul class="absolute top-8 -left-5 z-10 bg-primary-light w-40 p-2 space-y-4" x-show="show">
+                            <li><a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">အိမ်ဝယ်ရန်ရှာဖွေနေသူများ</a></li>
+                            <li><a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">အိမ်ငှါးရန်ရှာဖွေနေသူများ</a></li>
+                            <li><a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">အိမ်ရှာဖွေသူများ ပို့စ်တင်ရန်</a></li>
+                        </ul>
+                    </div>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">သတင်း</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">အကျိုးဆောင်များ</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">Careers</a>
                 </div>
-                <div class="flex justify-around lg:w-1/4 mb-2">
+                <div class="flex justify-around lg:w-1/5 mb-2">
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">Bookings</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">ID ဖြင့်ရှာပါ</a>
                     <a href="#" class="pb-1 border-b-4 border-primary-light hover:border-b-4 hover:border-primary hover:border-solid hover:text-primary">ဆက်သွယ်ရန်</a>
@@ -50,8 +94,8 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="w-full h-full bg-red-500 opacity-5"></div>
+    <section class="relative">
+        <div class="absolute inset-0 bg-primary opacity-25"></div>
         <img src="https://i.picsum.photos/id/9/1700/500.jpg?hmac=YeeuOZDYNGLvcnou29GkgpZ70pss8neV_5Gv_RBQr1Y" alt="">
     </section>
     <section class="p-8">
